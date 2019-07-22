@@ -156,3 +156,14 @@ function gcms_sanitize_color_option( $choice ) {
 
 	return 'default';
 }
+
+function gcms_admin_footer_credits( $text ) {
+    $text = 'gCMS';
+    return $text;
+ }
+add_filter( 'admin_footer_text', 'gcms_admin_footer_credits' );
+
+function tp_custom_logo() {
+ 
+}
+add_action('login_enqueue_scripts', 'tp_custom_logo');
