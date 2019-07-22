@@ -1,0 +1,21 @@
+{
+  "name": "gcms",
+  "description": "Default WP Theme",
+  "main": "",
+  "authors": [
+    "Bao Nguyen <baonguyenyam@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/p2bgravel/wordpress",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "k-sass-core": "^6.0.4",
+    "bootstrap": "^4.3.1"
+  }
+}
