@@ -33,10 +33,13 @@
     "extends @wordpress/browserslist-config"
   ],
   "scripts": {
-    "build:style": "node-sass style.scss style.css --output-style expanded && postcss -r style.css",
-    "build:print": "node-sass print.scss print.css --output-style expanded && postcss -r print.css",
+    "build:style": "node-sass style.scss style.css --output-style compressed && postcss -r style.css",
+    "build:print": "node-sass print.scss print.css --output-style compressed && postcss -r print.css",
     "build": "run-p \"build:*\"",
-    "watch": "chokidar \"**/*.scss\" -c \"npm run build\" --initial"
+    "dev:style": "node-sass style.scss style.css --source-map true --output-style expanded && postcss -r style.css",
+    "dev:print": "node-sass print.scss print.css --source-map true --output-style expanded && postcss -r print.css",
+    "dev": "run-p \"dev:*\"",
+    "start": "chokidar \"**/*.scss\" -c \"npm run dev\" --initial"
   },
   "dependencies": {
     "sass": "^1.22.7"
