@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Nineteen: Customizer
+ * gCMS: Customizer
  *
  * @package WordPress
  * @subpackage Twenty_Nineteen
