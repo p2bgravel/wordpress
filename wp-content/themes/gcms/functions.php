@@ -222,7 +222,7 @@ function gcms_scripts() {
 	wp_style_add_data( 'gcms-style', 'rtl', 'replace' );
 
 	if ( has_nav_menu( 'menu-1' ) ) {
-		wp_enqueue_script( 'gcms-priority-menu', get_theme_file_uri( '/js/priority-menu.js' ), array(), '1.1', true );
+		// wp_enqueue_script( 'gcms-priority-menu', get_theme_file_uri( '/js/priority-menu.js' ), array(), '1.1', true );
 		wp_enqueue_script( 'gcms-touch-navigation', get_theme_file_uri( '/js/touch-keyboard-navigation.js' ), array(), '1.1', true );
 	}
 

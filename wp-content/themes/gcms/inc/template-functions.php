@@ -17,15 +17,15 @@ function gcms_body_classes( $classes ) {
 
 	if ( is_singular() ) {
 		// Adds `singular` to singular pages.
-		$classes[] = 'singular';
+		$classes[] = 'singular gcms-main';
 	} else {
 		// Adds `hfeed` to non singular pages.
-		$classes[] = 'hfeed';
+		$classes[] = 'hfeed gcms-main';
 	}
 
 	// Adds a class if image filters are enabled.
 	if ( gcms_image_filters_enabled() ) {
-		$classes[] = 'image-filters-enabled';
+		$classes[] = 'image-filters-enabled gcms-main';
 	}
 
 	return $classes;
@@ -225,7 +225,7 @@ function gcms_add_ellipses_to_nav( $nav_menu, $args ) {
 
 	return $nav_menu;
 }
-add_filter( 'wp_nav_menu', 'gcms_add_ellipses_to_nav', 10, 2 );
+// add_filter( 'wp_nav_menu', 'gcms_add_ellipses_to_nav', 10, 2 );
 
 /**
  * WCAG 2.0 Attributes for Dropdown Menus

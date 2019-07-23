@@ -21,33 +21,38 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'gcms' ); ?></a>
 
-		<header id="masthead" class="<?php echo is_singular() && gcms_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>">
-
-			<div class="site-branding-container">
-				<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
-			</div><!-- .site-branding-container -->
-
+<header id="masthead" class="<?php echo is_singular() && gcms_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?> gcms-header bg-light">
+	<nav class="navbar navbar-expand-md navbar-light container">
+		<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gcmsMenuHeader" aria-controls="gcmsMenuHeader" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	
+		<div class="collapse navbar-collapse <?php echo $classes; ?>" id="gcmsMenuHeader">
 			<?php if ( is_singular() && gcms_can_show_post_thumbnail() ) : ?>
-				<div class="site-featured-image">
-					<?php
-						gcms_post_thumbnail();
-						the_post();
-						$discussion = ! is_page() && gcms_can_show_post_thumbnail() ? gcms_get_discussion_data() : null;
+				<?php
+					gcms_post_thumbnail();
+					the_post();
+					$discussion = ! is_page() && gcms_can_show_post_thumbnail() ? gcms_get_discussion_data() : null;
 
-						$classes = 'entry-header';
-					if ( ! empty( $discussion ) && absint( $discussion->responses ) > 0 ) {
-						$classes = 'entry-header has-discussion';
-					}
-					?>
-					<div class="<?php echo $classes; ?>">
-						<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
-					</div><!-- .entry-header -->
-					<?php rewind_posts(); ?>
+					$classes = 'entry-header';
+				if ( ! empty( $discussion ) && absint( $discussion->responses ) > 0 ) {
+					$classes = 'entry-header has-discussion';
+				}
+				?>
+				<div class="<?php echo $classes; ?>">
+					<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
 				</div>
-			<?php endif; ?>
-		</header><!-- #masthead -->
+				<?php rewind_posts(); ?>
+			<?php endif; ?> 
+			<div class="form-inline my-2 my-md-0">
+				<?php get_search_form(); ?>
+			</div>
+		</div>
+	</nav>
+</header>
+<!-- #masthead -->
 
+<main id="page" class="site gcms-body">
 	<div id="content" class="site-content">
